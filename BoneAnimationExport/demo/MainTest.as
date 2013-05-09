@@ -50,7 +50,7 @@ package
 		private function createAnimation():void{
 			var animation:BoneAnimation;
 			for (var i:int = 0; i < 20; i++) {
-				animation = boneAnimationFactory.createAnimation("Sworder",18);
+				animation = boneAnimationFactory.createAnimation("Sworder2",30);
 				animation.touchable = false;
 				animation.y = 40 + index * 15;
 				animation.x = 15 + i * 25;
