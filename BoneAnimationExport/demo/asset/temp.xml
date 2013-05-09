@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:2162819717cf74c7975121409521d91e$ -->
+<TextureAtlas imagePath="temp.png">
+    <SubTexture name="Attack" x="53" y="2" width="54" height="65" frameX="0" frameY="-4" frameWidth="54" frameHeight="69"/>
+    <SubTexture name="Body" x="2" y="2" width="49" height="74"/>
+    <SubTexture name="holdSword" x="53" y="69" width="35" height="57"/>
+</TextureAtlas>
