@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://texturepacker.com-->
-<!-- $TexturePacker:SmartUpdate:2162819717cf74c7975121409521d91e$ -->
+<!-- $TexturePacker:SmartUpdate:ab8abac782492779b40c71df6872cb00$ -->
 <TextureAtlas imagePath="temp.png">
-    <SubTexture name="Attack" x="53" y="2" width="54" height="65" frameX="0" frameY="-4" frameWidth="54" frameHeight="69"/>
-    <SubTexture name="Body" x="2" y="2" width="49" height="74"/>
-    <SubTexture name="holdSword" x="53" y="69" width="35" height="57"/>
+    <SubTexture name="Attack" x="432" y="26" width="54" height="65" frameX="0" frameY="-4" frameWidth="54" frameHeight="69"/>
+    <SubTexture name="Body" x="432" y="93" width="49" height="74"/>
+    <SubTexture name="holdSword" x="465" y="169" width="35" height="57"/>
+    <SubTexture name="imgActive" x="306" y="2" width="124" height="124"/>
+    <SubTexture name="imgFoot" x="432" y="2" width="57" height="22"/>
+    <SubTexture name="imgHead" x="306" y="128" width="118" height="81"/>
+    <SubTexture name="imgSword" x="426" y="169" width="37" height="112"/>
+    <SubTexture name="imgTeXiao" x="2" y="2" width="302" height="267" frameX="-18" frameY="0" frameWidth="320" frameHeight="267"/>
 </TextureAtlas>
