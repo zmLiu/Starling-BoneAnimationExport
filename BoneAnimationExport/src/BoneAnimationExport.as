@@ -200,8 +200,8 @@ package
 						];
 					}
 					
-					movie.gotoAndStop(currentFrame);
 					currentFrame++;
+					movie.gotoAndStop(currentFrame);
 					
 					lableFramesInfos[index] = frameData;
 					index++;
