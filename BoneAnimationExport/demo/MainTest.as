@@ -22,27 +22,30 @@ package
 		{
 			asset = new AssetManager(STLConstant.scale,STLConstant.useMipMaps);
 			asset.enqueue("asset/movies.json");
-			asset.enqueue("asset/temp.png");
-			asset.enqueue("asset/temp.xml");
+			asset.enqueue("asset/export.png");
+			asset.enqueue("asset/export.xml");
 			asset.loadQueue(function(ratio:Number):void{
 				if(ratio == 1){
-					boneAnimationFactory = new BoneAnimationFactory(asset.getOther("movies"),asset.getTextureAtlas("temp"),null);
+					boneAnimationFactory = new BoneAnimationFactory(asset.getOther("movies"),asset);
 					
 					text = new TextField(100,16,"");
 					text.hAlign = HAlign.LEFT;
 					text.color = 0xffffff;
 					
-					
-					var quad:Quad = new Quad(STLConstant.StageWidth,STLConstant.StageHeight,0x333333);
-					addChild(quad);
-					new TapGestures(quad,function():void{
-						createAnimation();
-					});
-					
-					createAnimation();
+					var animation:BoneAnimation = boneAnimationFactory.createAnimation("Tain",60);
+					animation.x = animation.y = 200;
+//					animation.goToMovie("walk");
+					animation.play();
+					addChild(animation);
 					
 					
-					
+//					var quad:Quad = new Quad(STLConstant.StageWidth,STLConstant.StageHeight,0x333333);
+//					addChild(quad);
+//					new TapGestures(quad,function():void{
+//						createAnimation();
+//					});
+//					
+//					createAnimation();
 				}
 			});
 		}
@@ -50,12 +53,12 @@ package
 		private function createAnimation():void{
 			var animation:BoneAnimation;
 			for (var i:int = 0; i < 20; i++) {
-				animation = boneAnimationFactory.createAnimation("Sworder2",30);
+				animation = boneAnimationFactory.createAnimation("Tain",60);
 				animation.touchable = false;
 				animation.y = 40 + index * 15;
 				animation.x = 15 + i * 25;
 				addChild(animation);
-				animation.goToMovie("attack");
+//				animation.goToMovie("walk");
 				animation.play();
 			}
 			index++;
