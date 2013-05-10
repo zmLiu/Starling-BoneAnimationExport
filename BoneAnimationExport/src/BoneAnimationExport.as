@@ -187,10 +187,16 @@ package
 				while(movie.currentLabel == currentLabel.name && currentFrame <= totalFrames){
 					
 					var frameData:Array = [];
+					var childName:String;
+					var frameIndex:int = 0;
 					for (var j:int = 0; j < movie.numChildren; j++) {
 						var child:DisplayObject = movie.getChildAt(j);
-						frameData[j] = [
-							getQualifiedClassName(child),
+						childName = getQualifiedClassName(child);
+						if(imagesData[childName] == null){
+							continue;
+						}
+						frameData[frameIndex] = [
+							childName,
 							formatNumber(child.x),
 							formatNumber(child.y),
 							formatNumber(child.scaleX),
@@ -198,6 +204,7 @@ package
 							formatNumber(MatrixUtil.getSkewX(child.transform.matrix)),
 							formatNumber(MatrixUtil.getSkewY(child.transform.matrix))
 						];
+						frameIndex++;
 					}
 					
 					currentFrame++;
@@ -225,7 +232,7 @@ package
 				movie.gotoAndStop(i);
 				for (var j:int = 0; j < movie.numChildren; j++) {
 					imageName = getQualifiedClassName(movie.getChildAt(j));
-					if(movieImages.indexOf(imageName) == -1){
+					if(movieImages.indexOf(imageName) == -1 && imagesData[imageName]){
 						movieImages.push(imageName);
 					}
 				}
