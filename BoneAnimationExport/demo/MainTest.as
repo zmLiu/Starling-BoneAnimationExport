@@ -7,6 +7,8 @@ package
 	import lzm.starling.gestures.TapGestures;
 	
 	import starling.display.Quad;
+	import starling.events.EnterFrameEvent;
+	import starling.events.Event;
 	import starling.text.TextField;
 	import starling.utils.AssetManager;
 	import starling.utils.HAlign;
@@ -15,6 +17,7 @@ package
 	{
 		private var asset:AssetManager;
 		private var boneAnimationFactory:BoneAnimationFactory;
+		private var animations:Array;
 		private var index:int = 0;
 		private var text:TextField;
 		
@@ -28,24 +31,60 @@ package
 				if(ratio == 1){
 					boneAnimationFactory = new BoneAnimationFactory(asset.getOther("movies"),asset);
 					
-					text = new TextField(100,16,"");
-					text.hAlign = HAlign.LEFT;
-					text.color = 0xffffff;
 					
-					var animation:BoneAnimation = boneAnimationFactory.createAnimation("Tain",60);
-					animation.x = animation.y = 200;
-//					animation.goToMovie("walk");
-					animation.play();
-					addChild(animation);
+					test1();
+//					test2();
 					
-					
-//					var quad:Quad = new Quad(STLConstant.StageWidth,STLConstant.StageHeight,0x333333);
-//					addChild(quad);
-//					new TapGestures(quad,function():void{
-//						createAnimation();
-//					});
-//					
-//					createAnimation();
+				}
+			});
+		}
+		
+		private function test1():void{
+			STLConstant.nativeStage.frameRate = 60;
+			
+			animations = [];
+			
+			var labbels:Array = ["stomp","walk","headSmack","dead"];
+			
+			var tempX:int = 56;
+			for (var i:int = 0; i < labbels.length; i++) {
+				var animation:BoneAnimation = boneAnimationFactory.createAnimation("Tain",60);
+				animation.x = 120 * i + tempX;
+				animation.y = 200;
+				animation.goToMovie(labbels[i]);
+				animation.play();
+				addChild(animation);
+				animations.push(animation);
+			}
+			
+			addEventListener(Event.ENTER_FRAME,function(e:EnterFrameEvent):void{
+				for each (var animation:BoneAnimation in animations) {
+					animation.update();
+				}
+			});
+		}
+		
+		private function test2():void{
+			STLConstant.nativeStage.frameRate = 30;
+			
+			text = new TextField(100,16,"");
+			text.hAlign = HAlign.LEFT;
+			text.color = 0xffffff;
+
+
+			var quad:Quad = new Quad(STLConstant.StageWidth,STLConstant.StageHeight,0x333333);
+			addChild(quad);
+			new TapGestures(quad,function():void{
+				createAnimation();
+			});
+			
+			animations = [];
+
+			createAnimation();
+			
+			addEventListener(Event.ENTER_FRAME,function(e:EnterFrameEvent):void{
+				for each (var animation:BoneAnimation in animations) {
+					animation.update();
 				}
 			});
 		}
@@ -53,13 +92,15 @@ package
 		private function createAnimation():void{
 			var animation:BoneAnimation;
 			for (var i:int = 0; i < 20; i++) {
-				animation = boneAnimationFactory.createAnimation("Tain",60);
+				animation = boneAnimationFactory.createAnimation("Sworder2",60);
 				animation.touchable = false;
 				animation.y = 40 + index * 15;
 				animation.x = 15 + i * 25;
 				addChild(animation);
-//				animation.goToMovie("walk");
+				animation.goToMovie("attack");
 				animation.play();
+				
+				animations.push(animation);
 			}
 			index++;
 			
