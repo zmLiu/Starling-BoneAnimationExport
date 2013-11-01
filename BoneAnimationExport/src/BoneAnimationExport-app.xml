@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<application xmlns="http://ns.adobe.com/air/application/3.7">
+<application xmlns="http://ns.adobe.com/air/application/3.9">
 	<id>BoneAnimationExport</id>
 	<filename>简易2d骨骼动画导出工具</filename>
 	<name>简易2d骨骼动画导出工具</name>
