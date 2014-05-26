@@ -1,12 +1,8 @@
-Starling-BoneAnimationExport
-============================
+该工具已经不维护了噢
 
-starling 简易骨骼动画导出工具
+建议使用升级版
 
-<<<<<<< HEAD
-没有DragoneBones强大。不过更加轻量。效率也稍微高一点
-=======
-导出的数据使用StarlingFeathers下的lzm.starling.display.ainmation.bone.BoneAnimationFactory解析
+[StarlingSwf](http://zmliu.github.io/2013/11/09/StarlingSwfTool/)
+================
 
-<img src="BoneAnimationExport/demo/images/Attack.png" />
->>>>>>> 8a1ea842d002bf576a2cf12a83b0b379eb3d223f
+新版更加强劲 值得一试
